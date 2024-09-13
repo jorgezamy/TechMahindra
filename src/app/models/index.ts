@@ -4,5 +4,3 @@ export type Report = {
   dayToProcess: number;
   processingDate: Date;
 };
-
-export type period = 'MONTHLY' | 'QUARTERLY';

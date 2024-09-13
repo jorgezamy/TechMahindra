@@ -1,36 +1,48 @@
 <article class="formgrid grid">
-    <section class="field col-3">
-        <p-dropdown [(ngModel)]="_selectedType" [options]="_types" optionLabel="name" placeholder="Select a Type"
-            [style]="{'width':'100%'}" />
-    </section>
-    <section class="field col-3">
-        <input [(ngModel)]="_selectedProcessingDay" type="text" pInputText [style]="{'width':'100%'}"
-            placeholder="Processing Day" />
-    </section>
-    <section class="field col-3">
-        <p-button label="Submit" (onClick)="_createReport()" />
-    </section>
+  <section class="field col-3">
+    <p-dropdown
+      [(ngModel)]="_selectedType"
+      [options]="_types"
+      optionLabel="name"
+      placeholder="Select a Type"
+      [style]="{ width: '100%' }"
+    />
+  </section>
+  <section class="field col-3">
+    <input
+      [(ngModel)]="_selectedProcessingDay"
+      type="text"
+      pInputText
+      [style]="{ width: '100%' }"
+      placeholder="Processing Day"
+      min="0"
+      max="31"
+    />
+  </section>
+  <section class="field col-3">
+    <p-button label="Submit" (onClick)="_createReport()" />
+  </section>
 </article>
 
 <article class="grid">
-    <section class="col-6">
-        <p-table [value]="_reportService._reports">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>Request Date</th>
-                    <th>Type</th>
-                    <th>Processing Day</th>
-                    <th>Processing Date</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-report>
-                <tr>
-                    <td>{{ report.requestDate.toDateString() }}</td>
-                    <td>{{ report.type }}</td>
-                    <td>{{ report.dayToProcess }}</td>
-                    <td>{{ report.processingDate.toDateString() }}</td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </section>
+  <section class="col-6">
+    <p-table [value]="_reportService._reports">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Request Date</th>
+          <th>Type</th>
+          <th>Processing Day</th>
+          <th>Processing Date</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-report>
+        <tr>
+          <td>{{ report.requestDate.toDateString() }}</td>
+          <td>{{ report.type }}</td>
+          <td>{{ report.dayToProcess }}</td>
+          <td>{{ report.processingDate.toDateString() }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </section>
 </article>
