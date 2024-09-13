@@ -1,6 +1,8 @@
 export type Report = {
-    requestDate: Date
-    type: 'MONTHLY' | 'QUARTERLY',
-    dayToProcess: number,
-    processingDate: Date
-}
+  requestDate: Date;
+  type: 'MONTHLY' | 'QUARTERLY';
+  dayToProcess: number;
+  processingDate: Date;
+};
+
+export type period = 'MONTHLY' | 'QUARTERLY';
